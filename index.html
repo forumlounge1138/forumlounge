@@ -170,6 +170,18 @@
   }
   .btn-kakao:hover { background: #F0D800; }
 
+  /* ===== CONTACT PAGE ===== */
+  .contact-wrap { max-width: 480px; margin: 60px auto; padding: 0 24px 60px; text-align: center; }
+  .contact-card { background: white; border-radius: 20px; padding: 48px 36px; box-shadow: 0 4px 24px rgba(46,35,48,0.07); }
+  .btn-kakao-contact {
+    display: inline-block; padding: 16px 48px;
+    background: #FEE500; color: #3C1E1E;
+    border-radius: 12px; font-size: 1.05rem; font-weight: 700;
+    text-decoration: none; transition: background 0.18s;
+  }
+  .btn-kakao-contact:hover { background: #F0D800; }
+  .contact-desc { margin-top: 24px; font-size: 0.88rem; color: var(--warm-gray); line-height: 1.7; }
+
   /* ===== CALENDAR PAGE ===== */
   .cal-wrap { max-width: 920px; margin: 0 auto; padding: 40px 24px 60px; }
   .cal-header {
@@ -217,6 +229,7 @@
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="showPage('apply', this)">대관 신청</button>
     <button class="nav-tab"        onclick="showPage('calendar', this)">예약 현황</button>
+    <button class="nav-tab"        onclick="showPage('contact', this)">기타 문의</button>
   </div>
 </nav>
 
@@ -359,9 +372,21 @@
   </div>
 </div>
 
+<!-- ==================== CONTACT PAGE ==================== -->
+<div id="page-contact" class="page">
+  <div class="hero">
+    <div class="hero-flower">💬</div>
+    <h1>기타 문의</h1>
+  </div>
+  <div class="contact-wrap">
+    <div class="contact-card">
+      <a href="http://pf.kakao.com/_xmHxjWn" target="_blank" class="btn-kakao-contact">별빛이 머무는 뜰</a>
+      <p class="contact-desc">궁금하신 점들은 위 카카오톡 채널 채팅을 통해 문의 바랍니다.</p>
+    </div>
+  </div>
+</div>
 
 
-<script>
 const $ = id => document.getElementById(id);
 
 // ---- STORAGE ----
