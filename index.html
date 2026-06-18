@@ -154,13 +154,21 @@
   .success-screen h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--dark); margin-bottom: 12px; }
   .success-screen p { color: var(--warm-gray); font-size: 0.91rem; line-height: 1.8; margin-bottom: 8px; }
   .btn-back {
-    margin-top: 28px; padding: 12px 32px;
+    margin-top: 12px; padding: 12px 32px;
     background: var(--rose-soft); color: var(--rose-deep);
     border: none; border-radius: 10px;
     font-family: 'Noto Sans KR', sans-serif; font-size: 0.91rem; font-weight: 600; cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s; display: block; width: fit-content; margin-left: auto; margin-right: auto;
   }
   .btn-back:hover { background: var(--rose); color: white; }
+  .btn-kakao {
+    display: inline-block; margin-top: 20px; margin-bottom: 4px;
+    padding: 13px 32px;
+    background: #FEE500; color: #3C1E1E;
+    border-radius: 10px; font-size: 0.95rem; font-weight: 700;
+    text-decoration: none; transition: background 0.18s;
+  }
+  .btn-kakao:hover { background: #F0D800; }
 
   /* ===== CALENDAR PAGE ===== */
   .cal-wrap { max-width: 920px; margin: 0 auto; padding: 40px 24px 60px; }
@@ -230,6 +238,7 @@
       <p>대관 신청이 접수되었어요.</p>
       <p>카카오톡 채널 <strong>별빛이머무는뜰</strong>로<br>신청 완료 메시지를 꼭 보내주세요.</p>
       <a href="http://pf.kakao.com/_xmHxjWn" target="_blank" class="btn-kakao">카카오톡 채널 바로가기</a>
+      <br>
       <button class="btn-back" onclick="resetForm()">새 신청서 작성하기</button>
     </div>
 
@@ -345,7 +354,7 @@
       </iframe>
     </div>
     <div class="cal-notice">
-      📌 캘린더에 표시된 일정은 관리자가 확정한 예약입니다. 신청 후 카카오톡 채널 <strong>별빛이머무는뜰</strong>로 꼭 알려주셔야 예약이 등록됩니다.
+      📌 캘린더에 표시된 일정은 관리자가 확정한 예약입니다. 신청 후 카카오톡 채널 <strong>별빛이머무는뜰</strong>로 꼭 알려주셔야 예약이 확정됩니다.
     </div>
   </div>
 </div>
