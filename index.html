@@ -49,7 +49,6 @@
   }
   .hero-flower { font-size: 2.2rem; margin-bottom: 10px; }
   .hero h1 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--dark); line-height: 1.2; }
-  .hero p { margin-top: 10px; color: var(--warm-gray); font-size: 0.91rem; line-height: 1.75; }
   .kakao-notice {
     display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
     background: #FEF3C7; border: 1px solid #F59E0B; border-radius: 10px;
@@ -74,7 +73,7 @@
     margin-left: 4px; vertical-align: middle; position: relative; top: -2px;
   }
 
-  input[type="text"], input[type="tel"], input[type="date"], select, textarea {
+  input[type="text"], input[type="tel"], input[type="date"], input[type="password"], select, textarea {
     width: 100%; padding: 13px 16px;
     border: 1.5px solid #E8E0EC; border-radius: 12px;
     font-family: 'Noto Sans KR', sans-serif; font-size: 0.91rem;
@@ -182,6 +181,105 @@
   .btn-kakao-contact:hover { background: #F0D800; }
   .contact-desc { margin-top: 24px; font-size: 0.88rem; color: var(--warm-gray); line-height: 1.7; }
 
+  /* ===== 관리자 비밀번호 화면 ===== */
+  .pw-wrap {
+    max-width: 380px; margin: 80px auto; padding: 0 24px;
+    text-align: center;
+  }
+  .pw-card {
+    background: white; border-radius: 20px; padding: 44px 36px;
+    box-shadow: 0 4px 24px rgba(46,35,48,0.09);
+  }
+  .pw-icon { font-size: 2.4rem; margin-bottom: 14px; }
+  .pw-card h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--dark); margin-bottom: 6px; }
+  .pw-card p { font-size: 0.85rem; color: var(--warm-gray); margin-bottom: 24px; }
+  .pw-input-wrap { position: relative; margin-bottom: 12px; }
+  .pw-input-wrap input { padding-right: 48px; }
+  .pw-toggle {
+    position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+    background: none; border: none; cursor: pointer; color: var(--warm-gray);
+    font-size: 1rem; padding: 0;
+  }
+  .pw-err { color: #C55; font-size: 0.8rem; margin-bottom: 14px; display: none; }
+  .pw-err.show { display: block; }
+  .btn-pw-enter {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, var(--rose-deep), var(--lavender));
+    color: white; border: none; border-radius: 12px;
+    font-family: 'Noto Sans KR', sans-serif; font-size: 0.95rem; font-weight: 700;
+    cursor: pointer; transition: opacity 0.2s;
+  }
+  .btn-pw-enter:hover { opacity: 0.88; }
+
+  /* ===== 관리자 게시판 ===== */
+  .admin-wrap { max-width: 860px; margin: 0 auto; padding: 40px 24px 60px; }
+  .admin-top {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+  }
+  .admin-top h2 { font-family: 'Playfair Display', serif; font-size: 1.55rem; color: var(--dark); }
+  .admin-top-right { display: flex; align-items: center; gap: 10px; }
+  .badge-count {
+    background: var(--rose-soft); color: var(--rose-deep);
+    border-radius: 20px; padding: 4px 14px; font-size: 0.82rem; font-weight: 700;
+  }
+  .btn-logout {
+    padding: 8px 16px; background: transparent;
+    border: 1.5px solid #E8E0EC; border-radius: 8px;
+    color: var(--warm-gray); font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.82rem; cursor: pointer; transition: all 0.15s;
+  }
+  .btn-logout:hover { border-color: var(--rose); color: var(--rose-deep); }
+
+  /* 카드 목록 */
+  .app-list { display: flex; flex-direction: column; gap: 14px; }
+  .app-card {
+    background: white; border-radius: 16px; padding: 22px 26px;
+    box-shadow: 0 2px 12px rgba(46,35,48,0.06);
+    border-left: 4px solid var(--rose);
+    transition: box-shadow 0.15s;
+  }
+  .app-card:hover { box-shadow: 0 4px 20px rgba(46,35,48,0.11); }
+  .app-card-head {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 14px; gap: 12px; flex-wrap: wrap;
+  }
+  .app-card-title { font-size: 1rem; font-weight: 700; color: var(--dark); }
+  .app-card-date { font-size: 0.8rem; color: var(--warm-gray); margin-top: 3px; }
+  .app-card-badge {
+    font-size: 0.75rem; font-weight: 600; padding: 4px 12px;
+    border-radius: 20px; background: var(--lav-soft); color: var(--rose-deep);
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .app-card-body {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .app-field { font-size: 0.83rem; }
+  .app-field-key { color: var(--warm-gray); margin-bottom: 2px; font-size: 0.75rem; }
+  .app-field-val { color: var(--dark); font-weight: 500; }
+  .app-activity { grid-column: 1 / -1; }
+  .app-card-foot {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--lav-soft);
+  }
+  .app-submitted { font-size: 0.75rem; color: var(--warm-gray); }
+  .btn-delete {
+    padding: 6px 14px; background: transparent;
+    border: 1.5px solid #E8E0EC; border-radius: 8px;
+    color: var(--warm-gray); font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.8rem; cursor: pointer; transition: all 0.15s;
+  }
+  .btn-delete:hover { border-color: #E87070; color: #C55; }
+
+  .admin-empty {
+    text-align: center; padding: 60px 20px;
+    background: white; border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(46,35,48,0.06);
+  }
+  .admin-empty .e-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .admin-empty p { font-size: 0.9rem; color: var(--warm-gray); }
+
   @media (max-width: 600px) {
     nav { padding: 12px 16px; flex-direction: column; gap: 8px; }
     .hero h1 { font-size: 1.6rem; }
@@ -189,6 +287,8 @@
     .gcal-wrap { min-height: 480px; border-radius: 14px; }
     .gcal-wrap iframe { height: 480px !important; }
     .cal-wrap { padding: 24px 12px 40px; }
+    .app-card { padding: 18px; }
+    .admin-wrap { padding: 24px 14px 40px; }
   }
 </style>
 </head>
@@ -200,10 +300,11 @@
     <button class="nav-tab active" onclick="showPage('apply', this)">대관 신청</button>
     <button class="nav-tab" onclick="showPage('calendar', this)">예약 현황</button>
     <button class="nav-tab" onclick="showPage('contact', this)">기타 문의</button>
+    <button class="nav-tab" onclick="goAdmin(this)">관리자</button>
   </div>
 </nav>
 
-<!-- APPLY -->
+<!-- ==================== APPLY ==================== -->
 <div id="page-apply" class="page active">
   <div class="hero">
     <div class="hero-flower">🌷</div>
@@ -224,39 +325,35 @@
       <div class="section-label">신청자 정보</div>
       <div class="field-group">
         <label>이름 (직분) <span class="required-dot"></span></label>
-        <input type="text" id="f-name" placeholder="예) 홍길동 (청년부 임원)" oninput="clearErr(this, 'err-name')">
+        <input type="text" id="f-name" placeholder="예) 홍길동 (청년부 임원)" oninput="clearErr(this,'err-name')">
         <div class="err-msg" id="err-name">이름을 입력해주세요.</div>
       </div>
       <div class="field-group">
         <label>신청 부서 <span class="required-dot"></span></label>
-        <input type="text" id="f-dept" placeholder="예) 청년부, 중등부" oninput="clearErr(this, 'err-dept')">
+        <input type="text" id="f-dept" placeholder="예) 청년부, 중등부" oninput="clearErr(this,'err-dept')">
         <div class="err-msg" id="err-dept">부서명을 입력해주세요.</div>
       </div>
       <div class="field-group">
         <label>연락처 <span class="required-dot"></span></label>
-        <input type="tel" id="f-phone" placeholder="예) 010-1234-5678" oninput="clearErr(this, 'err-phone')">
+        <input type="tel" id="f-phone" placeholder="예) 010-1234-5678" oninput="clearErr(this,'err-phone')">
         <div class="err-msg" id="err-phone">연락처를 입력해주세요.</div>
       </div>
       <div class="divider"></div>
       <div class="section-label">이용 일정</div>
       <div class="field-group">
         <label>이용 날짜 <span class="required-dot"></span></label>
-        <input type="date" id="f-date" oninput="clearErr(this, 'err-date')">
+        <input type="date" id="f-date" oninput="clearErr(this,'err-date')">
         <div class="err-msg" id="err-date">날짜를 선택해주세요.</div>
       </div>
       <div class="field-group">
         <label>이용 시간대 <span class="required-dot"></span></label>
         <div class="time-row">
           <div class="select-wrap">
-            <select id="f-time-from" onchange="clearErr(this, 'err-time')">
-              <option value="">시작 시간</option>
-            </select>
+            <select id="f-time-from" onchange="clearErr(this,'err-time')"><option value="">시작 시간</option></select>
           </div>
           <span class="time-sep">~</span>
           <div class="select-wrap">
-            <select id="f-time-to" onchange="clearErr(this, 'err-time')">
-              <option value="">종료 시간</option>
-            </select>
+            <select id="f-time-to" onchange="clearErr(this,'err-time')"><option value="">종료 시간</option></select>
           </div>
         </div>
         <div class="err-msg" id="err-time">시작 및 종료 시간을 선택해주세요.</div>
@@ -279,7 +376,7 @@
       </div>
       <div class="field-group">
         <label>행사 및 활동 내용 <span class="required-dot"></span></label>
-        <textarea id="f-activity" placeholder="예) 임원월례회, 여름성경학교, 독서포럼회 등 간략하게 적어주세요." oninput="clearErr(this, 'err-activity')"></textarea>
+        <textarea id="f-activity" placeholder="예) 임원월례회, 여름성경학교, 독서포럼회 등 간략하게 적어주세요." oninput="clearErr(this,'err-activity')"></textarea>
         <div class="err-msg" id="err-activity">행사 내용을 입력해주세요.</div>
       </div>
       <div class="divider"></div>
@@ -298,7 +395,7 @@
   </div>
 </div>
 
-<!-- CALENDAR -->
+<!-- ==================== CALENDAR ==================== -->
 <div id="page-calendar" class="page">
   <div class="cal-wrap">
     <div class="cal-header">
@@ -308,10 +405,8 @@
       </div>
     </div>
     <div class="gcal-wrap">
-      <iframe
-        src="https://calendar.google.com/calendar/embed?src=forumlounge1138%40gmail.com&ctz=Asia%2FSeoul&hl=ko&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0"
-        style="border:0" width="100%" height="640" frameborder="0" scrolling="no">
-      </iframe>
+      <iframe src="https://calendar.google.com/calendar/embed?src=forumlounge1138%40gmail.com&ctz=Asia%2FSeoul&hl=ko&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0"
+        style="border:0" width="100%" height="640" frameborder="0" scrolling="no"></iframe>
     </div>
     <div class="cal-notice">
       📌 캘린더에 표시된 일정은 관리자가 확정한 예약입니다. 신청 후 카카오톡 채널 <strong>별빛이머무는뜰</strong>로 꼭 알려주셔야 예약이 확정됩니다.
@@ -319,7 +414,7 @@
   </div>
 </div>
 
-<!-- CONTACT -->
+<!-- ==================== CONTACT ==================== -->
 <div id="page-contact" class="page">
   <div class="hero">
     <div class="hero-flower">💬</div>
@@ -333,22 +428,58 @@
   </div>
 </div>
 
-<script>
-const $ = id => document.getElementById(id);
+<!-- ==================== ADMIN ==================== -->
+<div id="page-admin" class="page">
 
-const STORE_KEY = 'forum_reservations';
-function loadData() { try { return JSON.parse(localStorage.getItem(STORE_KEY)) || []; } catch { return []; } }
+  <!-- 비밀번호 화면 -->
+  <div class="pw-wrap" id="pw-screen">
+    <div class="pw-card">
+      <div class="pw-icon">🔒</div>
+      <h2>관리자 로그인</h2>
+      <p>관리자 전용 페이지입니다.<br>비밀번호를 입력해주세요.</p>
+      <div class="pw-input-wrap">
+        <input type="password" id="pw-input" placeholder="비밀번호 입력" onkeydown="if(event.key==='Enter')checkPw()">
+        <button class="pw-toggle" onclick="togglePw()" id="pw-toggle-btn">👁</button>
+      </div>
+      <div class="pw-err" id="pw-err">비밀번호가 올바르지 않습니다.</div>
+      <button class="btn-pw-enter" onclick="checkPw()">입력</button>
+    </div>
+  </div>
+
+  <!-- 게시판 화면 -->
+  <div class="admin-wrap" id="admin-board" style="display:none;">
+    <div class="admin-top">
+      <h2>📋 신청 목록</h2>
+      <div class="admin-top-right">
+        <span class="badge-count" id="admin-count">0건</span>
+        <button class="btn-logout" onclick="adminLogout()">로그아웃</button>
+      </div>
+    </div>
+    <div id="app-list-wrap"></div>
+  </div>
+
+</div>
+
+<script>
+var $ = function(id){ return document.getElementById(id); };
+
+var STORE_KEY = 'forum_reservations';
+var ADMIN_PW  = 'fola123';
+var adminLoggedIn = false;
+
+function loadData() { try { return JSON.parse(localStorage.getItem(STORE_KEY)) || []; } catch(e) { return []; } }
 function saveData(arr) { localStorage.setItem(STORE_KEY, JSON.stringify(arr)); }
 
+/* 시간 옵션 */
 function buildTimeOptions() {
-  const selFrom = $('f-time-from');
-  const selTo   = $('f-time-to');
-  for (let h = 0; h <= 23; h++) {
-    ['00','30'].forEach(m => {
-      const period = h < 12 ? '오전' : '오후';
-      const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h;
-      const label = period + ' ' + h12 + '시' + (m === '30' ? ' 30분' : '');
-      const val   = String(h).padStart(2,'0') + ':' + m;
+  var selFrom = $('f-time-from');
+  var selTo   = $('f-time-to');
+  for (var h = 0; h <= 23; h++) {
+    ['00','30'].forEach(function(m){
+      var period = h < 12 ? '오전' : '오후';
+      var h12    = h === 0 ? 12 : h > 12 ? h - 12 : h;
+      var label  = period + ' ' + h12 + '시' + (m === '30' ? ' 30분' : '');
+      var val    = (h < 10 ? '0' : '') + h + ':' + m;
       selFrom.add(new Option(label, val));
       selTo.add(new Option(label, val));
     });
@@ -356,13 +487,100 @@ function buildTimeOptions() {
 }
 buildTimeOptions();
 
+/* 페이지 전환 */
 function showPage(name, btn) {
   document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
   document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
-  $('page-' + name).classList.add('active');
-  btn.classList.add('active');
+  $(('page-' + name)).classList.add('active');
+  if (btn) btn.classList.add('active');
 }
 
+/* 관리자 탭 클릭 */
+function goAdmin(btn) {
+  showPage('admin', btn);
+  if (adminLoggedIn) {
+    showBoard();
+  } else {
+    $('pw-screen').style.display = 'block';
+    $('admin-board').style.display = 'none';
+    $('pw-input').value = '';
+    $('pw-err').classList.remove('show');
+  }
+}
+
+/* 비밀번호 확인 */
+function checkPw() {
+  if ($('pw-input').value === ADMIN_PW) {
+    adminLoggedIn = true;
+    $('pw-err').classList.remove('show');
+    showBoard();
+  } else {
+    $('pw-err').classList.add('show');
+    $('pw-input').value = '';
+    $('pw-input').focus();
+  }
+}
+
+function togglePw() {
+  var inp = $('pw-input');
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+}
+
+/* 게시판 표시 */
+function showBoard() {
+  $('pw-screen').style.display = 'none';
+  $('admin-board').style.display = 'block';
+  renderBoard();
+}
+
+function renderBoard() {
+  var data = loadData();
+  $('admin-count').textContent = data.length + '건';
+  var wrap = $('app-list-wrap');
+  if (!data.length) {
+    wrap.innerHTML = '<div class="admin-empty"><div class="e-icon">📭</div><p>접수된 신청이 없습니다.</p></div>';
+    return;
+  }
+  wrap.innerHTML = '<div class="app-list">' + data.map(function(r){
+    var dateFmt = r.date ? r.date.replace(/-/g, '.') : '-';
+    return '<div class="app-card">'
+      + '<div class="app-card-head">'
+      +   '<div>'
+      +     '<div class="app-card-title">' + r.dept + ' · ' + r.name + '</div>'
+      +     '<div class="app-card-date">📅 ' + dateFmt + ' &nbsp; ⏰ ' + (r.timeLabelFrom||'') + ' ~ ' + (r.timeLabelTo||'') + '</div>'
+      +   '</div>'
+      +   '<span class="app-card-badge">태블릿 ' + (r.tablet||'-') + '</span>'
+      + '</div>'
+      + '<div class="app-card-body">'
+      +   '<div class="app-field"><div class="app-field-key">신청자</div><div class="app-field-val">' + r.name + '</div></div>'
+      +   '<div class="app-field"><div class="app-field-key">부서</div><div class="app-field-val">' + r.dept + '</div></div>'
+      +   '<div class="app-field"><div class="app-field-key">연락처</div><div class="app-field-val">' + r.phone + '</div></div>'
+      +   '<div class="app-field"><div class="app-field-key">이용 날짜</div><div class="app-field-val">' + dateFmt + '</div></div>'
+      +   '<div class="app-field"><div class="app-field-key">이용 시간</div><div class="app-field-val">' + (r.timeLabelFrom||'') + ' ~ ' + (r.timeLabelTo||'') + '</div></div>'
+      +   '<div class="app-field app-activity"><div class="app-field-key">행사 및 활동 내용</div><div class="app-field-val">' + r.activity + '</div></div>'
+      + '</div>'
+      + '<div class="app-card-foot">'
+      +   '<span class="app-submitted">접수: ' + (r.submittedAt||'') + '</span>'
+      +   '<button class="btn-delete" onclick="deleteEntry(' + r.id + ')">삭제</button>'
+      + '</div>'
+      + '</div>';
+  }).join('') + '</div>';
+}
+
+function deleteEntry(id) {
+  if (!confirm('이 신청을 삭제할까요?')) return;
+  saveData(loadData().filter(function(d){ return d.id !== id; }));
+  renderBoard();
+}
+
+function adminLogout() {
+  adminLoggedIn = false;
+  $('pw-screen').style.display = 'block';
+  $('admin-board').style.display = 'none';
+  $('pw-input').value = '';
+}
+
+/* 폼 유효성 */
 function clearErr(el, errId) {
   el.classList.remove('invalid');
   $(errId).classList.remove('show');
@@ -372,6 +590,7 @@ function showErr(errId, el) {
   if (el) el.classList.add('invalid');
 }
 
+/* 제출 */
 function submitForm() {
   var valid    = true;
   var name     = $('f-name').value.trim();
@@ -384,20 +603,20 @@ function submitForm() {
   var activity = $('f-activity').value.trim();
   var kakao    = $('kakao-check').checked;
 
-  if (!name)             { showErr('err-name',     $('f-name'));     valid = false; }
-  if (!dept)             { showErr('err-dept',     $('f-dept'));     valid = false; }
-  if (!phone)            { showErr('err-phone',    $('f-phone'));    valid = false; }
-  if (!date)             { showErr('err-date',     $('f-date'));     valid = false; }
-  if (!timeFrom||!timeTo){ showErr('err-time',     $('f-time-from'));valid = false; }
-  if (!tablet)           { showErr('err-tablet',   null);           valid = false; }
-  if (!activity)         { showErr('err-activity', $('f-activity'));valid = false; }
-  if (!kakao)            { showErr('err-kakao',    null);           valid = false; }
+  if (!name)              { showErr('err-name',     $('f-name'));      valid = false; }
+  if (!dept)              { showErr('err-dept',     $('f-dept'));      valid = false; }
+  if (!phone)             { showErr('err-phone',    $('f-phone'));     valid = false; }
+  if (!date)              { showErr('err-date',     $('f-date'));      valid = false; }
+  if (!timeFrom||!timeTo) { showErr('err-time',     $('f-time-from')); valid = false; }
+  if (!tablet)            { showErr('err-tablet',   null);            valid = false; }
+  if (!activity)          { showErr('err-activity', $('f-activity')); valid = false; }
+  if (!kakao)             { showErr('err-kakao',    null);            valid = false; }
   if (!valid) return;
 
   function fmt(v) {
-    var parts  = v.split(':');
-    var hh     = parseInt(parts[0]);
-    var m      = parts[1];
+    var p  = v.split(':');
+    var hh = parseInt(p[0]);
+    var m  = p[1];
     var period = hh < 12 ? '오전' : '오후';
     var h12    = hh === 0 ? 12 : hh > 12 ? hh - 12 : hh;
     return period + ' ' + h12 + '시' + (m === '30' ? ' 30분' : '');
@@ -416,8 +635,7 @@ function submitForm() {
   data.unshift(entry);
   saveData(data);
 
-  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwr_RfQk97dK8hfbBaot7GKNpYoU0ZjUyKvw4-5UMprOafWwt_FcEwJ5kGFGc1-cDXE/exec';
-  fetch(SCRIPT_URL, {
+  fetch('https://script.google.com/macros/s/AKfycbwr_RfQk97dK8hfbBaot7GKNpYoU0ZjUyKvw4-5UMprOafWwt_FcEwJ5kGFGc1-cDXE/exec', {
     method: 'POST', mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(entry)
@@ -431,9 +649,9 @@ function submitForm() {
 function resetForm() {
   $('form-card').style.display = 'block';
   $('success-screen').style.display = 'none';
-  ['f-name','f-dept','f-phone','f-date'].forEach(function(id){ $(id).value = ''; $(id).classList.remove('invalid'); });
+  ['f-name','f-dept','f-phone','f-date'].forEach(function(id){ $(id).value=''; $(id).classList.remove('invalid'); });
   $('f-time-from').selectedIndex = 0;
-  $('f-time-to').selectedIndex = 0;
+  $('f-time-to').selectedIndex   = 0;
   document.querySelectorAll('input[name="tablet"]').forEach(function(r){ r.checked = false; });
   $('kakao-check').checked = false;
   syncCheck($('kakao-check'));
