@@ -14,13 +14,34 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Noto Sans KR', sans-serif; background: var(--cream); color: var(--dark); min-height: 100vh; }
 
-  nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: white; border-bottom: 1px solid var(--rose-soft); position: sticky; top: 0; z-index: 200; }
-  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--rose-deep); }
-  .nav-logo span { font-style: italic; font-weight: 400; color: var(--warm-gray); font-size: 0.88rem; margin-left: 6px; }
-  .nav-tabs { display: flex; gap: 4px; }
-  .nav-tab { padding: 8px 20px; border-radius: 20px; border: none; background: transparent; color: var(--warm-gray); font-family: 'Noto Sans KR', sans-serif; font-size: 0.88rem; cursor: pointer; transition: all 0.2s; font-weight: 500; }
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 24px; background: white;
+    border-bottom: 1px solid var(--rose-soft);
+    position: sticky; top: 0; z-index: 200;
+    flex-wrap: nowrap; gap: 8px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif; font-size: 1.1rem;
+    color: var(--rose-deep); white-space: nowrap; flex-shrink: 0;
+  }
+  .nav-logo span { font-style: italic; font-weight: 400; color: var(--warm-gray); font-size: 0.8rem; margin-left: 4px; }
+  .nav-tabs { display: flex; gap: 2px; flex-shrink: 0; }
+  .nav-tab {
+    padding: 7px 12px; border-radius: 20px; border: none;
+    background: transparent; color: var(--warm-gray);
+    font-family: 'Noto Sans KR', sans-serif; font-size: 0.82rem;
+    cursor: pointer; transition: all 0.2s; font-weight: 500;
+    white-space: nowrap;
+  }
   .nav-tab.active { background: var(--rose-soft); color: var(--rose-deep); }
   .nav-tab:hover:not(.active) { background: var(--lav-soft); }
+  @media (max-width: 480px) {
+    nav { padding: 10px 12px; gap: 6px; }
+    .nav-logo { font-size: 0.95rem; }
+    .nav-logo span { display: none; }
+    .nav-tab { padding: 6px 9px; font-size: 0.78rem; }
+  }
 
   .page { display: none; }
   .page.active { display: block; }
@@ -148,7 +169,6 @@
   .admin-empty p { font-size: 0.9rem; color: var(--warm-gray); }
 
   @media (max-width: 600px) {
-    nav { padding: 12px 16px; flex-direction: column; gap: 8px; }
     .hero h1 { font-size: 1.6rem; }
     .form-card { padding: 26px 18px; }
     .gcal-wrap { min-height: 480px; border-radius: 14px; }
